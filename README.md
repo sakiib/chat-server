@@ -68,6 +68,7 @@ Available Commands:
 whoAmI - sends the client's self identity
 userList - lists the connected clients(ID)
 sendMessage - sends messages to all the clients
+sendToUsers - sends messages to the client with provided IDs
 help - lists all the available commands
 
 ```
@@ -86,6 +87,10 @@ $ userList
 # send messages to all the users
 # all the connected users will receive this message
 $ sendMessage hello world!
+
+# send message to users providing their IDs along with message
+# IDs must be enclosed by []
+$ sendToUsers hello world [21, 51]
 
 ```
 
