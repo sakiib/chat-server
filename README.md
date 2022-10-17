@@ -97,14 +97,20 @@ $ sendToUsers hello world [21, 51]
 
 ## Static Demo
 
+### whoAmI command demo
+
 <p class="has-text-centered">
   <img src="static/whoAmI.png" alt="Demo" style="border: none">
 </p>
 
 
+### sendMessage <message> command demo
+
 <p class="has-text-centered">
   <img src="static/sendMessage.png" alt="Demo" style="border: none">
 </p>
+
+### sendToUsers <message> []userList command demo
 
 <p class="has-text-centered">
   <img src="static/sendToUsers.png" alt="Demo" style="border: none">
