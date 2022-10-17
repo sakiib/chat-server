@@ -40,6 +40,8 @@ $ ./chat server
 # open several windown & run this command
 $ ./chat client
 
+# each client will be assigned a randomly generated ID within range of int64
+
 10 joined the chat
 successfully joined the chat server
 
