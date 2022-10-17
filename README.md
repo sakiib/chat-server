@@ -81,8 +81,10 @@ whoAmI? My ID 21
 $ userList
 10, 51, 21
 
-# send messsages to all the users
+# send messages to all the users
 # all the connected users will receive this message
 $ sendMessage hello world!
 
 ```
+
+## TODO (sendMessage to users by user IDs)
