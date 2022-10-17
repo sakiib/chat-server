@@ -87,4 +87,8 @@ $ sendMessage hello world!
 
 ```
 
+<p class="has-text-centered">
+  <img src="static/demo.png" alt="Demo" style="border: none">
+</p>
+
 ## TODO (sendMessage to users by user IDs)

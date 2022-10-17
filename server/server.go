@@ -247,7 +247,7 @@ func NewMessage(time time.Time, client *Client, text string) *Message {
 }
 
 func (message *Message) String() string {
-	return fmt.Sprintf("%s - %s: %s\n", message.time.Format(time.Kitchen), message.client.id, message.text)
+	return fmt.Sprintf("%d: %s\n", message.client.id, message.text)
 }
 
 func StartChatServer() {
