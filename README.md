@@ -1,4 +1,4 @@
-# Demo Chat Server using TCP, Cobra CLI
+# Demo Chat Server using Cobra CLI on Top of TCP
 
 ## Build
 
