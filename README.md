@@ -104,13 +104,13 @@ $ sendToUsers hello world [21, 51]
 </p>
 
 
-### sendMessage <message> command demo
+### sendMessage {message} command demo
 
 <p class="has-text-centered">
   <img src="static/sendMessage.png" alt="Demo" style="border: none">
 </p>
 
-### sendToUsers <message> []userList command demo
+### sendToUsers {message} []userList command demo
 
 <p class="has-text-centered">
   <img src="static/sendToUsers.png" alt="Demo" style="border: none">
