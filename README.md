@@ -90,8 +90,8 @@ $ sendMessage hello world!
 
 # send message to users providing their IDs along with message
 # only the connected users from the usersList will receive the message
-# IDs must be enclosed by []
-$ sendToUsers hello world [21, 51]
+# IDs must be enclosed by [] separated by commas
+$ sendToUsers hello world [21,51]
 
 ```
 
