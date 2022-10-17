@@ -62,11 +62,22 @@ func (s *Server) Parse(message *Message) {
 		s.ListUsers(message)
 	case strings.HasPrefix(message.text, utils.CMD_SendMessage):
 		s.SendMessage(message)
+	case strings.HasPrefix(message.text, utils.CMD_SendToUsers):
+		s.SendToUsers(message)
 	case strings.HasPrefix(message.text, utils.CMD_Help):
 		s.Help(message.client)
 	default:
 		message.client.outgoing <- "unknown command\n"
 	}
+}
+
+func (s *Server) SendToUsers(message *Message) {
+	if message.client.chatRoom == nil {
+		return
+	}
+	users := utils.ParseUsersList(message.text)
+	log.Println("users: ", users)
+	message.client.chatRoom.ToUsers(message, users)
 }
 
 func (s *Server) SendMessage(message *Message) {
@@ -112,6 +123,7 @@ func (s *Server) Help(client *Client) {
 	client.outgoing <- "whoAmI - sends the client's self identity\n"
 	client.outgoing <- "userList - lists the connected clients(ID)\n"
 	client.outgoing <- "sendMessage - sends messages to all the clients\n"
+	client.outgoing <- "sendToUsers - sends messages to the client with provided IDs\n"
 	client.outgoing <- "help - lists all the available commands\n"
 	client.outgoing <- "\n"
 }
@@ -164,6 +176,17 @@ func (chatRoom *ChatRoom) Broadcast(message string) {
 	chatRoom.messages = append(chatRoom.messages, message)
 	for _, client := range chatRoom.clients {
 		client.outgoing <- message
+	}
+}
+
+func (chatRoom *ChatRoom) ToUsers(message *Message, users []string) {
+	for _, user := range users {
+		for _, client := range chatRoom.clients {
+			if cast.ToString(client.id) == user {
+				chatRoom.messages = append(chatRoom.messages, message.String())
+				client.outgoing <- message.String()
+			}
+		}
 	}
 }
 
@@ -247,6 +270,14 @@ func NewMessage(time time.Time, client *Client, text string) *Message {
 }
 
 func (message *Message) String() string {
+	if strings.Index(message.text, " ") != -1 {
+		message.text = message.text[strings.Index(message.text, " "):]
+	}
+
+	if strings.Index(message.text, "[") != -1 {
+		message.text = message.text[:strings.Index(message.text, "[")]
+	}
+
 	return fmt.Sprintf("%d: %s\n", message.client.id, message.text)
 }
 

@@ -11,4 +11,5 @@ const (
 	CMD_WhoAmI      = "whoAmI"
 	CMD_Help        = "help"
 	CMD_UserList    = "userList"
+	CMD_SendToUsers = "sendToUsers"
 )

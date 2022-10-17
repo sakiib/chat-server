@@ -100,4 +100,6 @@ $ sendMessage hello world!
   <img src="static/sendMessage.png" alt="Demo" style="border: none">
 </p>
 
-## TODO (sendMessage to users by user IDs)
+<p class="has-text-centered">
+  <img src="static/sendToUsers.png" alt="Demo" style="border: none">
+</p>
